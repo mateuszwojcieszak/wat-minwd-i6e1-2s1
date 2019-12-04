@@ -1,9 +1,12 @@
-package pl.pfpg.min3.model;
+package pl.pfpg.min3;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.pfpg.min3.GithubService;
+import pl.pfpg.min3.model.InputRequest;
+import pl.pfpg.min3.model.UserInformation;
+import pl.pfpg.min3.model.UserQueryResponse;
+import pl.pfpg.min3.model.response.Data;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -13,11 +16,7 @@ public class MainService {
   private final GithubService githubService;
 
   public UserInformation getUserData(InputRequest inputRequest) {
-    UserQueryResponse usersByUserName = githubService.getUsersByUserName(inputRequest.input);
-    if(usersByUserName.getUsers().isEmpty()){
-      log.info("Nie ma takiego uzytkownika githuba");
-    }
-    UserInformation userInformation = usersByUserName.getUsers().get(0);
+    UserInformation userInformation = githubService.getUsersByUserName(inputRequest.getInput());
     return userInformation;
   }
 }
