@@ -5,6 +5,7 @@ import java.util.Date;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import pl.pfpg.min3.model.response.Data;
 
 @Builder
 @Getter
@@ -19,6 +20,7 @@ public class UserInformation implements Serializable {
   Date createdAt;
   int followersCount;
   int followingCunt;
-
-
+  String htmlUrl;
+  int publicRepos;
+  Data data;
 }

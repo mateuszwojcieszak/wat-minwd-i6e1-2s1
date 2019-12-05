@@ -2,13 +2,11 @@ package pl.pfpg.min3.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class InputRequest {
-  String input;
-  String graphDepth;
+public class InputBody {
+  InputRequest input;
 }
