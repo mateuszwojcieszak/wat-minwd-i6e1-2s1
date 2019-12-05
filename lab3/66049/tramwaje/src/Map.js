@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import './App.css';
-import { throwStatement } from '@babel/types';
 
 class Map extends Component {
 
@@ -17,10 +16,11 @@ class Map extends Component {
             mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN,
         },
         trams: [],
-        selectedTram: null
+        selectedTram: null,
     }
 
     componentDidMount() {
+        this.uuidv1 = require('uuid/v1');
         this.fetchData();
         setInterval(this.fetchData, 10000);
     }
@@ -30,14 +30,17 @@ class Map extends Component {
     } 
 
     fetchData = () => {
-       fetch('https://api.um.warszawa.pl/api/action/busestrams_get/?resource_id=f2e5503e927d-4ad3-9500-4ab9e55deb59&apikey=b183d804-0cca-49a0-96ef-09e04c53b5f5&type=2')
-       .then(res => res.json())
-       .then(result => {
-           this.setState({
-               trams: result.result
-           });
-           console.log(result.result);
-       });
+        fetch('https://api.um.warszawa.pl/api/action/busestrams_get/?resource_id=f2e5503e927d-4ad3-9500-4ab9e55deb59&apikey=b183d804-0cca-49a0-96ef-09e04c53b5f5&type=2')
+        .then(res => res.json())
+        .then(result => {
+            result.result.map(tram => {
+                tram.uid = this.uuidv1();
+            })
+            this.setState({
+                trams: result.result
+            });
+            console.log(result.result);
+        });
     }
 
     updateViewport = (viewport) => {
@@ -52,13 +55,13 @@ class Map extends Component {
 
     loadTrams = () => {
         return this.state.trams.map(tram => {
-            return (
-                <Marker key={tram.Brigade} latitude={parseFloat(tram.Lat)} longitude={parseFloat(tram.Lon)}>
-                    <div className='LineNumber'>{tram.Lines}</div>
-                    <img className='icon' src='/icon.png' onClick={() => { this.setSelectedTram(tram); }}/>
-                </Marker>
-            );
+            let marker = <Marker key={tram.uid} latitude={parseFloat(tram.Lat)} longitude={parseFloat(tram.Lon)}>
+                <div className='LineNumber'>{tram.Lines}</div>
+                <img className='icon' src='/icon.png' onClick={() => { this.setSelectedTram(tram); }}/>
+            </Marker>
+            return marker;
         });
+
     }
 
     closePopup = () => {
@@ -69,6 +72,7 @@ class Map extends Component {
         const {viewport} = this.state.viewport;
         return (
                 <ReactMapGL
+                ref={map => (this.mapRef = map)}
                 {...this.state.viewport}
                 onViewportChange={this.updateViewport}
                 >
