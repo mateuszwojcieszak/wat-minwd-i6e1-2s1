@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
+import {Row, Col, Container} from 'react-bootstrap'
 
 class Buttons extends React.Component {
 
@@ -54,6 +55,7 @@ class Buttons extends React.Component {
             input: this.state.input,
             graphDepth: 3
         };
+        console.log("Fire in the hole")
         axios.post(`http://localhost:8080/getUserData`, {input})
             .then(res => {
                 console.log(res);
@@ -68,7 +70,7 @@ class Buttons extends React.Component {
         })
     }
 
-    changeUserDataThinds(fromRequest){
+    changeUserDataThinds(fromRequest) {
         this.setState({
             email: fromRequest.email,
             name: fromRequest.name,
@@ -94,40 +96,50 @@ class Buttons extends React.Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <List>
-                    <ListItem>
-                        <ListItemText primary={this.state.email} secondary="email"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.name} secondary="name"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.avatarUrl} secondary="avatar-url"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.blog} secondary="blog"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.createdAt} secondary="created-at"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.url} secondary="url"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                    <ListItem>
-                        <ListItemText primary={this.state.repos} secondary="repos count"/>
-                    </ListItem>
-                    <Divider component="li"/>
-                </List>
-                <Tree
-                    data={this.state.data}
-                    height={400}
-                    width={400}/>
+                <Container>
+                <Row>
+                    <Col xs={6}>
+                    <List>
+                        <ListItem>
+                            <ListItemText primary={this.state.email} secondary="email"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.name} secondary="name"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.avatarUrl} secondary="avatar-url"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.blog} secondary="blog"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.createdAt} secondary="created-at"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.url} secondary="url"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                        <ListItem>
+                            <ListItemText primary={this.state.repos} secondary="repos count"/>
+                        </ListItem>
+                        <Divider component="li"/>
+                    </List>
+                    </Col>
+                    <Col>
+                    <Tree
+                        data={this.state.data}
+                        height={1000}
+                        width={1000}
+                        style={{fontsize: "1px"}}
+                    />
+                    </Col>
+                </Row>
+                </Container>
             </>
         )
     }

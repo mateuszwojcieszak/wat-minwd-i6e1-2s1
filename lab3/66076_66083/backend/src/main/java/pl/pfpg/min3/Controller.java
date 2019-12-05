@@ -22,7 +22,10 @@ public class Controller {
   @CrossOrigin
   @PostMapping("getUserData")
   public UserInformation getUserData(@RequestBody InputBody input){
-    return mainService.getUserData(input.getInput());
+    log.info("fire in the hole");
+    UserInformation userData = mainService.getUserData(input.getInput());
+    log.info(userData.getName());
+    return userData;
   }
 }
 
