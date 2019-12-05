@@ -11,7 +11,7 @@ class Map extends Component {
             latitude: 52.237049,
             longitude: 21.017532,
             zoom: 13,
-            maxZoom: 16,
+            maxZoom: 20,
             minZoom: 12,
             mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN,
         },
