@@ -22,6 +22,15 @@
 }
 
 .icon {
-  height: 10%;
-  width: 10%;
+  height: 35px;
+  width: 30px;
+  position: relative;
+  left: -15px;
+  top: -45px;
+}
+
+.LineNumber {
+  position: relative;
+  left: -15px;
+  top: -45px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import './App.css';
+import { throwStatement } from '@babel/types';
 
 class Map extends Component {
 
@@ -16,6 +17,7 @@ class Map extends Component {
             mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN,
         },
         trams: [],
+        selectedTram: null
     }
 
     componentDidMount() {
@@ -34,7 +36,7 @@ class Map extends Component {
            this.setState({
                trams: result.result
            });
-           console.log(result.result[0]);
+           console.log(result.result);
        });
     }
 
@@ -42,17 +44,27 @@ class Map extends Component {
         this.setState({viewport});
     };
 
+    setSelectedTram = object => {
+        this.setState({
+            selectedTram: object
+        });
+    }
+
     loadTrams = () => {
         return this.state.trams.map(tram => {
             return (
                 <Marker key={tram.Brigade} latitude={parseFloat(tram.Lat)} longitude={parseFloat(tram.Lon)}>
-                    <div>{tram.Lines}</div>
-                    <img className='icon' src='/icon.png'/>
+                    <div className='LineNumber'>{tram.Lines}</div>
+                    <img className='icon' src='/icon.png' onClick={() => { this.setSelectedTram(tram); }}/>
                 </Marker>
             );
         });
     }
- 
+
+    closePopup = () => {
+        this.setState({selectedTram: null});
+    }
+
     render() {
         const {viewport} = this.state.viewport;
         return (
@@ -61,6 +73,17 @@ class Map extends Component {
                 onViewportChange={this.updateViewport}
                 >
                 {this.loadTrams()}
+                {this.state.selectedTram !== null ? (
+                    <Popup 
+                        latitude={parseFloat(this.state.selectedTram.Lat)}
+                        longitude={parseFloat(this.state.selectedTram.Lon)}
+                        onClose={this.closePopup}
+                        onRequestClose={this.closePopup}>
+                            <div>
+                                {this.state.selectedTram.Brigade}
+                            </div>
+                    </Popup>
+                ) : null}
                 </ReactMapGL>
         );
     }
