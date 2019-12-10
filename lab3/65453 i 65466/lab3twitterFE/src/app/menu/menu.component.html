@@ -1,0 +1,55 @@
+<div class="container">
+
+  <form>
+    <div class="form-group">
+      <label for="name">Wprowadź nazwę użytkownika do wyszukania: </label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"
+        required>
+      <button type="submit" class="btn" id="submitBtn">Wyszukaj</button>
+    </div>
+  </form>
+
+
+
+  <form>
+    <div class="form-group">
+      <label>Nazwa użytkownika: </label>
+      <input [readonly]="true" type="text" class="form-control" id="twittername" [(ngModel)]="twittername"
+        [ngModelOptions]="{standalone: true}">
+      <div></div>
+      <label>Imię i nazwisko: </label>
+      <input [readonly]="true" type="text" class="form-control" id="fullname" [(ngModel)]="fullname"
+        [ngModelOptions]="{standalone: true}">
+      <div></div>
+      <label>Lokalizacja: </label>
+      <input [readonly]="true" type="text" class="form-control" id="location" [(ngModel)]="location"
+        [ngModelOptions]="{standalone: true}">
+      <div></div>
+      <label>Strona internetowa: </label>
+      <input [readonly]="true" type="text" class="form-control" id="usrUrl" [(ngModel)]="usrUrl"
+        [ngModelOptions]="{standalone: true}">
+      <div></div>
+      <label>Data dołączenia: </label>
+      <input [readonly]="true" type="text" class="form-control" id="joined" [(ngModel)]="joined"
+        [ngModelOptions]="{standalone: true}">
+      <div></div>
+      <label>Opis: </label>
+      <textarea [readonly]="true" type="text" class="form-control" id="description" [(ngModel)]="description"
+        [ngModelOptions]="{standalone: true}"></textarea>
+      <div></div>
+      <label>Najstarszy tweet: </label>
+      <textarea [readonly]="true" class="form-control" [(ngModel)]="ftweet"
+        [ngModelOptions]="{standalone: true}"></textarea>
+      <div></div>
+      <label>Najnowszy tweet: </label>
+      <textarea [readonly]="true" class="form-control" [(ngModel)]="ltweet"
+        [ngModelOptions]="{standalone: true}"></textarea>
+      <div></div>
+    </div>
+  </form>
+
+  <div *ngIf="showCloud" class="container text-right" id="cloud">
+    <angular-tag-cloud [data]="data" [width]="options.width" [height]="options.height" [overflow]="options.overflow">
+    </angular-tag-cloud>
+  </div>
+</div>
