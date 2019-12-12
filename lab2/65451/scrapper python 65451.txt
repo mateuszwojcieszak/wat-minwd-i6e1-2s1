@@ -8,7 +8,6 @@ print('Podaj model:')
 model = input()
 
 path = 'https://www.otomoto.pl/osobowe/' + maker + '/' + model 
-fileName = maker + '-' + model + '-' + str(now.date()) + '.csv'
 
 res = requests.get(path)
 res.raise_for_status()
