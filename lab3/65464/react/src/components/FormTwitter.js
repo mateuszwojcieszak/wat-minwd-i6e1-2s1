@@ -23,6 +23,13 @@ const FormTwitter = ({ form, setFormData }) => {
     return (
         <FormCard title="Inser username and number of last twits" >
             <Form onSubmit={onSubmit} layout='inline'>
+                <Form.Item label="Username">
+                    {getFieldDecorator('username', {
+                        rules: [{ required: true, message: 'Please input username!' }],
+                    })(
+                        <Input />
+                    )}
+                </Form.Item>
                 <Form.Item label="Quantity">
                     {getFieldDecorator('quantity', {
                         rules: [{ required: true, message: 'Please input quantity!' }],

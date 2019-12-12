@@ -7,7 +7,9 @@ using Microsoft.Extensions.Logging;
 using Tweetinvi;
 using Tweetinvi.Logic;
 using Tweetinvi.Models;
+using Tweetinvi.Parameters;
 using TwitterClient.Model;
+using Tweet = Tweetinvi.Tweet;
 
 namespace TwitterClient.Controllers
 {
@@ -20,30 +22,38 @@ namespace TwitterClient.Controllers
 
         }
 
-        [HttpGet(nameof(User))]
-        public IAuthenticatedUser Get()
+        [HttpGet("User/{userName}")]
+        public IUser Get(string userName)
         {
-            return Tweetinvi.User.GetAuthenticatedUser();
-        }
+            var user = Tweetinvi.User.GetUserFromScreenName(userName);
 
-        [HttpGet("Tweets")]
-        public IEnumerable<ITweet> GetTweets([FromQuery] int tweetsCount = 5)
-        {
-            var user = Tweetinvi.User.GetAuthenticatedUser();
-
-            var tweets = Timeline.GetUserTimeline(user, tweetsCount);
-
-            return tweets;
-        }
-
-
-        [HttpGet("TestTweet")]
-        public ITweet GetTestTweet()
-        {
-            return new TestTweet()
+            if (user != null)
             {
-                Text = "Text of tweet"
-            };
+                return user;
+            }
+
+            throw new Exception("UserIsNotExist");
+        }
+
+        [HttpGet("Tweets/{userName}")]
+        public IEnumerable<ITweet> GetTweets(string userName, [FromQuery] int tweetsCount = 5)
+        {
+            var user = Tweetinvi.User.GetUserFromScreenName(userName);
+
+            if (user != null)
+            {
+                var userTimelineParam = new UserTimelineParameters()
+                {
+                    MaximumNumberOfTweetsToRetrieve = tweetsCount,
+                    IncludeRTS = true
+                };
+
+                var tweets = Timeline.GetUserTimeline(user, userTimelineParam).ToList();
+
+                return tweets;
+            }
+
+            throw new Exception("UserIsNotExist");
         }
     }
 }

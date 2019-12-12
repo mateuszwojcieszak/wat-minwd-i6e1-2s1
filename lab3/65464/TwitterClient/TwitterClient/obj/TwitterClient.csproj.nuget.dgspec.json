@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Robert W\\Downloads\\Banach\\lab3\\TwitterClient\\TwitterClient\\TwitterClient.csproj": {}
+    "C:\\Users\\Robert W\\Desktop\\Koncowe\\TwitterClient\\TwitterClient\\TwitterClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Robert W\\Downloads\\Banach\\lab3\\TwitterClient\\TwitterClient\\TwitterClient.csproj": {
+    "C:\\Users\\Robert W\\Desktop\\Koncowe\\TwitterClient\\TwitterClient\\TwitterClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robert W\\Downloads\\Banach\\lab3\\TwitterClient\\TwitterClient\\TwitterClient.csproj",
+        "projectUniqueName": "C:\\Users\\Robert W\\Desktop\\Koncowe\\TwitterClient\\TwitterClient\\TwitterClient.csproj",
         "projectName": "TwitterClient",
-        "projectPath": "C:\\Users\\Robert W\\Downloads\\Banach\\lab3\\TwitterClient\\TwitterClient\\TwitterClient.csproj",
+        "projectPath": "C:\\Users\\Robert W\\Desktop\\Koncowe\\TwitterClient\\TwitterClient\\TwitterClient.csproj",
         "packagesPath": "C:\\Users\\Robert W\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robert W\\Downloads\\Banach\\lab3\\TwitterClient\\TwitterClient\\obj\\",
+        "outputPath": "C:\\Users\\Robert W\\Desktop\\Koncowe\\TwitterClient\\TwitterClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

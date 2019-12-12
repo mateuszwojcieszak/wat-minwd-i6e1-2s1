@@ -1,29 +1,16 @@
-import { userDetails, lastTwits, testTwit } from '../mock/mock'
+import { userDetails, json as lastTwits } from '../mock/mock'
 
 export const fetchUserDetails = async (formData) => {
-    // return await fetch('url.com/Twitter')
-    //     .then(res => res.json());
-    return new Promise(resolve => {
-        setTimeout(() => resolve(JSON.parse(userDetails)), 1200)
-    })
+    const { username } = formData
+    return await fetch(`http://localhost:5000/Twitter/User/${username}`)
+        .then(res => res.json())
+        .catch(() => JSON.parse(userDetails))
 }
 
 export const fetchLastTwittsTest = async (formData) => {
-    const { quantity } = formData
+    const { quantity, username } = formData
     const tweetsCount = quantity;
-    // return await fetch('url.com/Twitter/TestTweet'})
-    //     .then(res => res.json());
-    return new Promise(resolve => {
-        setTimeout(() => resolve(testTwit), 1200)
-    })
-}
-
-export const fetchLastTwitts = async (formData) => {
-    const { quantity } = formData
-    const tweetsCount = quantity;
-    //return await fetch('url.com/Twitter/Tweets', { qs: { tweetsCount } })
-    //     .then(res => res.json());
-    return new Promise(resolve => {
-        setTimeout(() => resolve(lastTwits), 1200)
-    })
+    return await fetch(`http://localhost:5000/Twitter/Tweets/${username}`, { qs: { tweetsCount } })
+        .then(res => res.json())
+        .catch(() => lastTwits)
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import WrappedNormalLoginForm from './components/FormTwitter'
 import UserDetails from './components/UserDetails'
-import { fetchUserDetails, fetchLastTwitts, fetchLastTwittsTest } from './service/TwitterService'
+import { fetchUserDetails, fetchLastTwittsTest } from './service/TwitterService'
 
 const App = () => {
   const [formData, setFormData] = useState({})

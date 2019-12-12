@@ -8,7 +8,7 @@ using Tweetinvi.Models.Entities;
 
 namespace TwitterClient.Model
 {
-    public class TestTweet : ITweet
+    public class TestTweet  //ITweet
     {
         public long Id { get; }
         public string IdStr { get; }

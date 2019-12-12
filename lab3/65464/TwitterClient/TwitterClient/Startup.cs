@@ -68,10 +68,9 @@ namespace TwitterClient
             }
 
             app.UseStaticFiles();
-            app.UseHttpsRedirection();
-            app.UseAuthentication();
             app.UseCors(MyAllowSpecificOrigins);
             app.UseMvcWithDefaultRoute();
+            app.UseWelcomePage();
         }
     }
 }
