@@ -1,0 +1,12 @@
+#cloud, #userInput
+{
+    display:inline;
+}
+
+.btn.btn-success {
+    margin-left: 10px;
+}
+
+.card-body {
+    background: solid blueviolet;
+}
