@@ -1,0 +1,11 @@
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\bin\Debug\netcoreapp2.0\CrawlerDemo.deps.json
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\bin\Debug\netcoreapp2.0\CrawlerDemo.runtimeconfig.json
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\bin\Debug\netcoreapp2.0\CrawlerDemo.runtimeconfig.dev.json
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\bin\Debug\netcoreapp2.0\CrawlerDemo.dll
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.csprojResolveAssemblyReference.cache
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.csproj.CoreCompileInputs.cache
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.AssemblyInfoInputs.cache
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.AssemblyInfo.cs
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\bin\Debug\netcoreapp2.0\CrawlerDemo.pdb
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.dll
+E:\WAT\MOJE\SEMESTR VII\Wspomaganie\lab2\CrawlerDemo\CrawlerDemo\obj\Debug\netcoreapp2.0\CrawlerDemo.pdb

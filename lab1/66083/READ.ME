@@ -1,0 +1,31 @@
+Treść zadania:
+Zadanie 6. Dziecko w pewnym wieku potrzebuje określonych ilości witamin. Ilość witamin dostarczanych przez pewne produkty przedstawiono poniżej. Należy wyznaczyć takie ilości poszczególnych produktów, aby zapewnić pożądaną ilość zachowując jak najniższy koszt.
+Produkty	Ilość witamin w jednostce	Koszt jednostkowy [zł]
+	A	B	
+P1	6	1	1,2
+P2	3	3	1,8
+P3	4	2	2,0
+P4	4	4	0,9
+Minimalna ilość	120	60	
+Zbuduj model matematyczny i rozwiąż zadanie metodą geometryczną.
+
+
+Funkcja celu f: min (1.2 * p1 + 1.8 * p2 + 2.0 * p3 + 0.9 * p4)
+Gdzie:
+p1 - liczba produktów 1
+p2 - liczba produktów 2
+p3 - liczba produktów 3
+p4 - liczba produktów 4
+
+Ograniczenia:
+6 * p1 + 3 * p2 + 4 * p3 + 4 * p4 >= 120
+1 * p1 + 3 * p2 + 2 *p3 + 4 * p4 >= 60
+p1, p2, p3, p4 >= 0 
+
+Rozwiązanie:
+Zminimalizowana wartość funkcji celu: 25.2
+Ilość poszczególnych produktów:
+p1=12
+p2=0
+p3=0
+p4=12
